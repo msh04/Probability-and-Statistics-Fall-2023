@@ -1,0 +1,1651 @@
+\documentclass[]{article}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{stackengine}
+\usepackage{amssymb} 
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{xepersian}
+\settextfont{XB Zar}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+
+
+\lstset{language=python,keywordstyle={\bfseries \color{blue}}}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\normalsize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+	\include{document}
+	\Large
+	\titleformat*{\section}{\huge\bfseries}
+	\titleformat*{\subsection}{\LARGE\bfseries}
+	\titleformat*{\subsubsection}{\Large\bfseries}
+	\section{پیش نیاز ها}
+	\subsection{پاسخ تئوری1.}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[X] = \int_{0}^{\infty} \geqslant \int_{a}^{\infty} x f_X(x) dx		
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\forall x \geqslant a : x f_X(x) \geqslant a f_X(x)		
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow \mathbb{E}[X] \geqslant \int_{a}^{\infty} x f_X(x) dx \geqslant a \int_{a}^{\infty} f_X(x) dx
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[X \geqslant a] = \int_{a}^{\infty} f_X(x) dx
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[X \geqslant a] \leqslant \frac{\mathbb{E}[X]}{a}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 2.}
+	\subsubsection{1.}
+	$X$ را متغیر تصادفی کسر مردمی که در ایستگاه پیاده می شوند می گیریم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[X \geqslant 0.85] \leqslant \frac{0.75}{0.85} = \frac{15}{17}
+	\end{equation}
+	\subsubsection{2.}
+	از نامساوی چبیشف:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[|X - \mathbb{E}[X]| \geqslant 0.1] \leqslant \frac{\sigma^2}{0.01} = 0.25
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow 1- \mathbb{P}[|X - \mathbb{E}[X]| \geqslant 0.1] = \mathbb{P}[|X - \mathbb{E}[X]| < 0.1] \geqslant 0.75
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[|X - \mathbb{E}[X]| < 0.1] = \mathbb{P}[0.65 < X < 0.85] \geqslant 0.75
+	\end{equation}
+	\subsubsection{3.}
+	از نامساوی چبیشف داریم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[\lvert \frac{\sum_{i}X_i}{N} - \mu \rvert > \epsilon] \leqslant \frac{\sigma ^ 2}{N \epsilon^2}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[\lvert \frac{\sum_{i}X_i}{N} - \mu \rvert > \epsilon] = 1 -  \mathbb{P}[\lvert \frac{\sum_{i}X_i}{N} - \mu \rvert \leqslant \epsilon] \\ = 1- 0.9 = 0.1
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow N \leqslant \frac{\sigma^2}{\epsilon^2 \mathbb{P}[\lvert \frac{\sum_{i}X_i}{N} - \mu \rvert > \epsilon]} = \frac{(0.25) ^ 2}{(0.1) (0.05) ^ 2} = 250
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 3.}
+	\subsubsection{1.}
+	\begin{equation}
+		\nonumber
+		Z_n = \sum_{i=1}^{n} X_i \hspace{0.5cm} , \hspace{0.5cm} \mathbb{E}[X_i] = \lambda
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[Z_n] = \sum_{i=1}^{n} \mathbb{E}[X_i] = n\lambda
+	\end{equation}
+	از مارکف داریم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n \geqslant kn\lambda] \leqslant \frac{\mathbb{E}[Z_n]}{kn\lambda} = \frac{1}{k}
+	\end{equation}
+	\subsubsection{2.}
+	متغیر تصادفی $Y$ را به صورت زیر تعریف می کنیم:
+	\begin{equation}
+		\nonumber
+		Y \overset{\Delta}{=} \frac{Z_n - n\mu}{\sqrt{n}\sigma} \hspace{1cm} \overset{\Longrightarrow}{\scriptsize \text{CLT}} \hspace{1cm} Y \sim \mathcal{N}(0, 1)
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		X_i \sim Poisson(\lambda) \Rightarrow \mu = \lambda \hspace{0.5cm},\hspace{0.5cm} \sigma=\sqrt{\lambda}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			\mathbb{P}[Z_n \geqslant kn\lambda] & = \mathbb{P}[\frac{Z_n - n\lambda}{\sqrt{n\lambda}} \geqslant \frac{kn\lambda - n\lambda}{\sqrt{n\lambda}}]	\\
+			& = \mathbb{P}[Y \geqslant \sqrt{n\lambda} (k-1)] \\
+			& = \frac{1}{\sqrt{2\pi}} \int_{\sqrt{n\lambda} (k-1)}^{\infty} \exp[-\frac{x^2}{2}] dx \\
+			& = \frac{1}{2\sqrt{2}} \frac{2}{\sqrt{\pi}}[\int_{0}^{\infty}\exp[-\frac{x^2}{2}] dx - \int_{0}^{\sqrt{n\lambda}(k-1)} \exp[-\frac{x^2}{2}]dx]	\\
+			& = \frac{1}{2} [erf(\infty) - erf(\sqrt{\frac{n\lambda}{2}}(k-1))] \\
+			& = \frac{1}{2} [1 - erf(\frac{\sqrt{10}}{4})] \approx 0.132
+		\end{split}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 4.}
+	اگر $X_i$ ها مستقل باشند، آنگاه تابع مولد گشتاور $Z_n = \sum_{i=1}^{n} X_i$ برابر با ضرب توابع مولد گشتاور $X_i$ ها خواهد بود. زیرا:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			\Phi_{Z_n}[s] &= \mathbb{E}[e^{sZ_n}] \\
+			& = \mathbb{E}[e^{s\sum_{i}X_i}] \\
+			& = \mathbb{E}[\Pi_{i}e^{sX_i}] \hspace{0.5cm} \overset{\scriptsize \text{iid}}{=} \hspace{0.5cm} \Pi_{i} \mathbb{E}[e^{sX_i}] \\
+			& = \Pi_{i} \Phi_{X_i}[s]
+		\end{split}
+	\end{equation}
+	$X_i$ ها هم توزیع هستند. پس:
+	\begin{equation}
+		\nonumber
+		\Phi_{X_i}[s] = \Phi_{X}[s]
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow\Phi_{Z_n}[s] = (\Phi_{X}[s])^n
+	\end{equation}
+	با لگاریتم گرفتن از طرفین:
+	\begin{equation}
+		\nonumber
+		\Psi_{Z_n}[s] = n \Psi_{X}[s]
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 5.}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n \geqslant n\beta] = \mathbb{P}[sZ_n \geqslant sn\beta] = \mathbb{P}[e^{sZ_n} \geqslant e^{sn\beta}]
+	\end{equation}
+	از قضیه مارکف داریم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[e^{sZ_n} \geqslant e^{sn\beta}] \leqslant \frac{\mathbb{E}[e^{sZ_n}]}{e^{sn\beta}}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[e^{sZ_n}] = \Phi_{Z_n}[s] = e^{\Psi_{Z_n}[s]}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-sn\beta}e^{\Psi_{Z_n}[s]} = e^{-n(s\beta - \Psi_{X}[s])}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow \mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-n(s\beta - \Psi_{X}[s])}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		l \overset{\Delta}{=} s\beta - \Psi_{X}[s]
+	\end{equation}
+	اگر $\mathbb{P}[Z_n \geqslant n\beta]$ از حداقل $e^{-ln}$ کمتر باشد از بقیه مقادیر $e^{-ln}$ نیز کمتر است. برای مینیمم کردن $e^{-ln}$ کافیست $l$ را ماکسیمم کنیم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-nl_{max}}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		r \overset{\Delta}{=} l_{max} = \sup_{s \geqslant 0}\{s\beta - \Psi_{X}[s]\}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 6.}
+	\subsubsection{1.}
+	همانطور که سر کلاس اثبات شد، می دانیم تابع مولد گشتاور توزیع گاوسی از رابطه زیر پیروی می کند:
+	\begin{equation}
+		\nonumber
+		\Phi_X(s) = e^{\mu s + \frac{\sigma^2 s^2}{2}}
+	\end{equation}
+	با لگاریتم گرفتن از تابع بالا به نتیجه زیر می رسیم:
+	\begin{equation}
+		\nonumber
+		\psi_X(s) = \mu s + \frac{\sigma^2 s^2}{2}
+	\end{equation}
+	\subsubsection{2.}
+	با استفاده از نتیجه بخش قبل داریم:
+	\begin{equation}
+		\nonumber
+		\psi_X(s) = \frac{Var(X)s^2}{2}
+	\end{equation}
+	و نیز با توجه به این نکته که
+	\begin{equation}
+		\nonumber
+		Var(X) = \mathbb{E}[X^2] - \mathbb{E}^2[X] = \mathbb{E}[X^2]
+	\end{equation}
+	و استفاده از فرض صورت سوال 
+	\begin{equation}
+		\nonumber
+		|X| < M \Rightarrow \hspace{1cm} Var(X) < M^2
+	\end{equation}
+	به نتیجه صورت سوال خواهیم رسید:
+	\begin{equation}
+		\nonumber
+		\psi_X(s) < \frac{1}{2} M^2 \sigma^2
+	\end{equation}
+	\subsubsection{3.}
+	در این بخش از یافته های بخش های قبل استفاده می کنیم. از نتیجه سوال قبل می دانیم:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-n\sup_{s \geqslant 0}\{s\beta - \psi_X(s)\}} =
+		e^{-n\sup_{s \geqslant 0}\{s\beta - s\mu - \frac{\sigma^2 s^2}{2}\}}
+	\end{equation}
+	که تابعی که از آن سوپریمم گرفته می شود، یک سهمی محدب است. در نتیجه ماکسیمم در 
+	$-\frac{b}{2a}$
+	رخ می دهد که در آن 
+	$b$
+	 و 
+	 $a$
+	 پارامتر های سهمی ما هستند.
+	 در نتیجه:
+	 \begin{equation}
+	 	\nonumber
+	 	s^* = \arg\max_s (s(\beta - \mu) - \frac{\sigma^2 s^2}{2}) = \frac{\beta - \mu}{\sigma^2}
+	 \end{equation}
+	 در نتیجه با جایگذاری :
+	 \begin{equation}
+	 	\nonumber
+	 	\mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-n\frac{(\beta - \mu)^2}{2\sigma^2}}
+	 \end{equation}
+	 از طرفی نیز:
+	 \begin{equation}
+	 	\nonumber
+	 	\sigma^2 = \mathbb{E}[X^2] - \mathbb{E}^2[X] \leqslant M^2 - \mu^2
+	 \end{equation}
+	 \begin{equation}
+	 	\nonumber
+	 	\Rightarrow -\frac{1}{\sigma^2} \leqslant -\frac{1}{M^2 - \mu^2}
+	 \end{equation}
+	 \begin{equation}
+	 	\nonumber
+	 	\Rightarrow e^{-n\frac{(\beta - \mu)^2}{2\sigma^2}} \leqslant e^{-n\frac{(\beta - \mu)^2}{2(M^2 - \mu^2)}}
+	 \end{equation}
+	 و با قرار دادن 
+	 $\mu = 0$
+	 به نتیجه زیر می رسیم:
+	 \begin{equation}
+	 	\nonumber
+	 	\mathbb{P}[Z_n \geqslant n\beta] \leqslant e^{-n \frac{\beta^2}{2M^2}}
+	 \end{equation}
+	\newpage
+	\section{که درازاست ره مقصد و من نوسفرم!}
+	\subsection{پاسخ تئوری 7.}
+	\subsubsection{1.}
+	توزیع جلو رفتن در ایستگاه ها به صورت دو جمله ایست. اگر فرض کنیم از ایستگاه اول سوار می شود، آنگاه احتمال اینکه پس از n گام در ایستگاه z ام باشد به صورت زیر است:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}[Z_n=z] = \binom{n}{z-1} p^{z-1} (1-p)^{n-z+1}
+	\end{equation}
+	\subsubsection{2.}
+	متغیر تصادفی $X_i$ بیانگر این است که در ایستگاه i ام سوار می شویم $(X_i = 1)$ یا نمی شویم $(X_i = 0)$.\\ پس یک توزیع برنولی با پارامتر p است:
+	\begin{equation}
+		\nonumber
+		X_i \sim Ber(p) \Rightarrow \mathbb{E}[X_i] = p
+	\end{equation} 
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[X_i^2] = p
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		Var[X_i] = \mathbb{E}[X_i^2] - \mathbb{E}^2[X_i]
+	\end{equation}
+	\subsubsection{3.}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[Z_n] = \mathbb{E}[Z_0] + \mathbb{E}[\sum_{i=1}^{n}X_i]
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[\sum_{i=1}^{n}X_i] = \sum_{i=1}^{n}\mathbb{E}[X_i] = np
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{E}[Z_0] = 1
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow \mathbb{E}[Z_n] = 1+np
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		Var[Z_n] = np(1-p)
+	\end{equation}
+	\subsubsection{4.}
+	بنظر 
+	$Z$
+	یک متغیر دوجمله ایست. بنابراین 
+	$\mathbb{E}[Z]$
+	مکان نهایی را پس از $n$ پرتاب بیان می کند.
+	\newpage
+	\subsection{پاسخ تئوری 8.}
+	مطلوب سوال این است که مجموع امتیاز هایش طی حداقل 80 تاس انداختن بیش از 300 می شود. در نتیجه طی 79 پرتاب اول، کمتر از 301 است:
+	\begin{equation}
+		\nonumber
+		\sum_{i=1}^{79} X_i < 301
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow \mathbb{E}(X_i) = \frac{1}{10} \sum_{i=1}^{10} i = 5.5
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow Var(X_i) = \frac{1}{10} \sum_{i=1}^{10} i^2 - (5.5)^2 = 38.5 - 30.25 = 8.25
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			\mathbb{P}(\sum_{i=1}^{79}X_i < 301) &= \mathbb{P}(\sum_{i=1}^{79}X_i - 79 \times 5.5 < -133.5)\\
+			&=\mathbb{P}(\frac{\sum_{i=1}^{79}X_i - 79 \times 5.5}{\sqrt{79(8.25)}} < \frac{-133.5}{\sqrt{79(8.25)}})\\
+			&= \Phi(\frac{-133.5}{\sqrt{79(8.25)}})			
+		\end{split}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 9.}
+	\subsubsection{1.}
+	احتمال اینکه در بار $n$ ام روی خانه $z$ بیاید برابرست با احتمال اینکه روی خانه $z-1$ بوده و یک خانه جلو بیاید یا روی خانه $z+1$ باشد و یک خانه عقب برود.
+	\begin{equation}
+		\nonumber
+		\mathbb{P}_{Z_n}[z] = \frac{1}{2} [\mathbb{P}_{Z_{n-1}}[z-1] + \mathbb{P}_{Z_{n-1}}[z+1]]
+	\end{equation}
+	\subsubsection{2.}
+	کافیست به صورت بازگشتی جملات را جایگذاری کنیم:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			\mathbb{P}_{Z_n}[z] &= \frac{1}{2} [\mathbb{P}_{Z_{n-1}}[z - 1] + \mathbb{P}_{Z_{n-1}}[z+1]]\\
+			&=\frac{1}{2^2}[\mathbb{P}_{Z_{n-2}}[z - 2] + \mathbb{P}_{Z_{n-2}}[z+2] + 2\mathbb{P}_{Z_{n-2}}[z]]\\ 
+			&=\frac{1}{2^3}[\mathbb{P}_{Z_{n-3}}[z - 3] + \mathbb{P}_{Z_{n-3}}[z+3] + 3\mathbb{P}_{Z_{n-3}}[z+1] + 3\mathbb{P}_{Z_{n-3}}[z-1]]\\
+			&\vdots\\
+			&=\frac{1}{2^n}\sum_{i = 0}^{n}\binom{n}{i}\mathbb{P}_{Z_0}[z - n + 2i] 
+		\end{split}
+	\end{equation}
+	می دانیم در ابتدا در مبدا هستیم. در نتیجه:
+	\begin{equation}
+		\nonumber
+		z - n + 2i = 0 \Rightarrow i = \frac{n - z}{2}
+	\end{equation}
+	در نتیجه:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}_{Z_n}(z) = \binom{n}{\frac{n-z}{2}} \frac{1}{2^n} = \frac{1}{2^n} \frac{n!}{(\frac{n-z}{2})!(\frac{n+z}{2})!} 
+	\end{equation}
+	\subsection{3.}
+	تعداد جلو رفتن ها را با $F$ و تعداد عقب رفتن ها را با $B$ نشان دهیم:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			&\text{در مجموع $n$ حرکت} : F + B = n \\
+			&\text{مقصد نهایی} : F - B = z\\
+			&\Rightarrow F = \frac{n + z}{2}
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\mathbb{P}_{Z_n}[z] = \binom{n}{\frac{n+z}{2}} p^{\frac{n+z}{2}} (1-p)^{\frac{n-z}{2}}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 10.}
+	از ایستگاه $n$ وارد می شود. اگر احتمال اینکه به شهربازی برود را با
+	 $\mathbb{P}_{X_n}$
+	  و احتمال اینکه به باغ وحش برود را با
+	 $\mathbb{P}_{Y_n}$
+	  بنامیم، آنگاه:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			&\mathbb{P}_{X_n} = \frac{1}{2}[\mathbb{P}_{X_{n+1}} + \mathbb{P}_{X_{n-1}}]\\
+			&\mathbb{P}_{X_n} = \lambda^n\\
+			&\Rightarrow 2\lambda^n = \lambda^{n-1} + \lambda^{n+1}\\
+			&(\lambda - 1)^2=0
+		\end{split}
+	\end{equation}
+	ریشه مضاعف داریم. پس جواب را مانند معادله دیفرانسیل مرتبه دوم در شرایط بحرانی حل می کنیم. یعنی:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			&\mathbb{P}_{X_n} = \lambda^n (A+Bn) = A+ Bn\\
+			&\mathbb{P}_{X_{-1}} = 1 = A-B\\
+			&\mathbb{P}_{X_2} = 0 = A + 2B\\
+			&\Rightarrow 3A = 2 \Rightarrow A=\frac{2}{3}\\
+			&\Rightarrow B = \frac{-1}{3}\\
+			&\Rightarrow \mathbb{P}_{X_n} = \frac{2-n}{3}\\
+			&\Longrightarrow \mathbb{P}_{X_0} = \frac{2}{3}
+		\end{split}
+	\end{equation}
+	قطعا در یکی از دو ایستگاه باید پیاده شود. در نتیجه  احتمال باغ وحش برابرست با متمم احتمال شهربازی :
+	\begin{equation}
+		\nonumber
+		\mathbb{P}_{Y_0} = 1 - \mathbb{P}_{X_0} = \frac{1}{3}
+	\end{equation}
+	\newpage
+	\subsection{پاسخ تئوری 11.}
+	\subsubsection{1.}
+	با احتمال $p$ جلو می رود و از آنجا انگار از ایستگاه $n+1$ سوار شده و با احتمال $1-p$ عقب می رود و انگار از ایستگاه $n-1$ سوار شده است:
+	\begin{equation}
+		\nonumber
+		\mathbb{P}_n = p \mathbb{P}_{n+1} + (1-p) \mathbb{P}_{n-1}
+	\end{equation}
+	در اینجا نیاز به حالت بندی داریم:
+	\begin{equation}
+		\nonumber
+		\text{$p = \frac{1}{2}$} : \hspace{2cm} \mathbb{P}_n = \frac{1}{2} [\mathbb{P}_{n+1} + \mathbb{P}_{n-1}]
+	\end{equation}
+	همانطور که از حل سوال 10 دیدیم، جواب به فرم $A+Bn$ است:
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			&\mathbb{P}_n = A+Bn\\
+			\text{اگر از ایستگاه صفر شروع کند هرگز نمی رسد} : &\mathbb{P}_0 = 0 = A\\
+			\text{اگر از ایستگاه $l$ شروع کند در واقع رسیده است!} : &\mathbb{P}_l = 1 = A+Bl
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow \mathbb{P}_n = \frac{n}{l}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			p \neq \frac{1}{2}: \hspace{2cm}&\mathbb{P}_{n} = p\mathbb{P}_{n+1} + q\mathbb{P}_{n-1}\\
+			& \mathbb{P}_n = \lambda^n\\
+			& \Rightarrow \lambda^n = p \lambda^{n+1} + q\lambda^{n-1}\\
+			& \Rightarrow p\lambda^2 - \lambda + q= 0\\
+			& \Longrightarrow \lambda = 1 \hspace{0.5cm}\text{یا}\hspace{0.5cm} \frac{q}{p} \\
+			& \mathbb{P}_n = A+B(\frac{q}{p})^n\\
+			& \mathbb{P}_0 = 0 = A+B\\
+			& \mathbb{P}_l = 1 = A+B (\frac{q}{p})^l
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow
+		\begin{cases}
+			& B = \frac{1}{(\frac{q}{p})^l - 1}\\
+			& A = \frac{-1}{(\frac{q}{p})^l - 1}
+		\end{cases}
+		\Rightarrow 
+		\mathbb{P}_n = \frac{(\frac{q}{p})^n - 1}{(\frac{q}{p})^l - 1}
+	\end{equation}
+	\subsubsection{2.}
+	\begin{equation}
+		\nonumber
+		\begin{split}
+			t_n &= p (t_{n+1} + 1) + q (t_{n-1}+1)\\
+			&=pt_{n+1} + qt_{n-1} + 1
+		\end{split}
+	\end{equation}
+	مجددا مانند بخش قبل باید حالت بندی کنیم. یعنی جواب برای احتمال $p=\frac{1}{2}$ و حالت های دیگر متفاوت خواهد بود:
+	\begin{equation}
+		\nonumber
+		p = \frac{1}{2}: \hspace{2cm} t_n = \frac{1}{2} [t_{n+1}+t_{n-1}] + 1
+	\end{equation}
+	جواب بخش همگن را از قسمت قبلی می دانیم. برای بخش ناهمگن نیز می دانیم جمله های ثابت و خطی جواب مسئله نخواهند بود زیرا در جواب همگن این جملات وجود دارند. پس جمله مربعی را در معادله امتحان می کنیم:
+	\begin{equation}
+		\nonumber
+		t_{pn} = cn^2 \Rightarrow cn^2 = \frac{c}{2} [(n+1)^2 + (n-1)^2] + 1
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\Rightarrow c = -1
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		t_{n} = A+Bn -n^2 
+	\end{equation}
+	حال شرایط مرزی را اعمال می کنیم:
+	\begin{equation}
+		\nonumber
+		\begin{cases}
+			&t_0 = 0 = A\\
+			&t_l = 0 = A+Bl - l^2
+		\end{cases}
+		\hspace{1cm}
+		\Rightarrow B = l
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		t_{n} = n(l-n)
+	\end{equation}
+	اگر $n$ را پیوسته فرض کنیم:
+	\begin{equation}
+		\nonumber
+		\frac{dt_n}{dn} = 0 \Rightarrow n = \frac{l}{2}
+	\end{equation}
+	حال اگر فرض پیوستگی را کنار بگذاریم:
+	\begin{equation}
+		\nonumber
+		n^* = \arg\max_n t_n = 
+		\begin{cases}
+			\frac{l}{2} &\mbox{if $l$ is even}\\
+			\frac{l\pm1}{2}&\mbox{if $l$ is odd}
+		\end{cases}
+	\end{equation}
+	حال برای حالت 
+	$p \neq \frac{1}{2}$ :
+	\begin{equation}
+		\nonumber
+		t_n = 1 + p t_{n+1} + qt_{n-1}
+	\end{equation}
+	جواب همگن را داریم 
+	$A + B(\frac{q}{p})^n$
+	. جواب ناهمگن:
+	\begin{equation}
+		\nonumber
+		t_n = nc \Rightarrow c = \frac{1}{1-2p}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		t_n = A + B(\frac{q}{p})^n + \frac{n}{1-2p}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\begin{cases}
+			t_0 = 0 = A + B\\
+			t_l = 0 = A + B(\frac{q}{p})^l + \frac{l}{1-2p}
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		t_n = \frac{n}{1-2p} + \frac{l}{1-2p} \frac{1 - (\frac{q}{p})^n}{(\frac{q}{p})^l - 1}
+	\end{equation}
+	با فرض پیوستگی $n$ داریم:
+	\begin{equation}
+		\nonumber
+		\frac{dt_n}{dn} = 0 \Rightarrow n (\frac{q}{p})^{n-1} = \frac{(\frac{q}{p})^l - 1}{l \ln(\frac{q}{p})}
+	\end{equation}
+	که $n$ ای که $t_n$ را بیشینه می کند، از معادله فوق بدست می آید.
+\newpage	
+\subsection{پاسخ تئوری 12.}	
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = p\mathbb{P}_{n+1}+q\mathbb{P}_{n-1} \Longrightarrow  p\lambda^2 - \lambda+q=0
+\end{equation}
+باز هم مانند مسئله قبل دو حالت داریم، اگر
+$p=\frac{1}{2}$:
+\begin{equation}
+	\nonumber
+	\lambda^2-2\lambda+1=0 \Longrightarrow (\lambda-1)^2=0
+\end{equation}
+که ریشه مضاعف داریم. پس جواب به فرم خطی است:
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = A + Bn
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{cases}
+		\mathbb{P}_0 = 1 = A\\
+		\mathbb{P}_\infty = 0 = 1 + B \infty		
+	\end{cases}
+\end{equation}
+که
+$B$
+صفر می شود. نتیجه می گیریم:
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = 1
+\end{equation}
+در واقع احتمال خارج شدن از مترو فارغ از ایستگاهی که وارد می شود یک است.\\
+اگر
+$p\neq \frac{1}{2}$ 
+باشد، مانند بخش قبل:
+\begin{equation}
+	\nonumber
+	\lambda = 
+	\begin{cases}
+		1\\
+		\frac{q}{p}
+	\end{cases}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = A+B(\frac{q}{p})^n
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = A(1-(\frac{q}{p})^n)+(\frac{q}{p})^n
+\end{equation}
+حال مسئله را به دو حالت قسمت می کنیم:
+\begin{equation}
+	\nonumber
+	p>\frac{1}{2} \Longrightarrow \lim_{n \to \infty} (\frac{q}{p})^n=0
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{cases}
+		\mathbb{P}_\infty = 0 = A \\
+		\mathbb{P}_0 = 1  = B 		
+	\end{cases}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = (\frac{q}{p})^n
+\end{equation}
+اگر
+$p<\frac{1}{2}$
+باشد، قطعا می رسیم. زیرا در حالت احتمال های برابر رسیدیم، پس در این حالت هم حتما می رسیم:
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n = 1
+\end{equation}
+بله اگر با احتمال بیشتری به سمت جلو حرکت کنیم، ممکن است هیچ وقت خارج نشویم.
+\begin{equation}
+	\nonumber
+	t_n = p(1+t_{n+1})+q(1+t_{n-1}) = 1+p t_{n+1}+qt_{n-1}
+\end{equation}
+مثل بخش قبل باید از روشی برای حل معادله‌ی غیر همگن استفاده کنیم.\\
+از پاسخ های بخش قبل استفاده میکنیم، اگر
+$p=\frac{1}{2}$
+باشد:
+\begin{equation}
+	\nonumber
+	t_n = A+Bn - n^2
+\end{equation}
+\begin{equation}
+	\nonumber
+	t_0 = A = 0
+\end{equation}
+حال در حد بینهایت، جملات واگرا می شوند. پس نمی توان نظر قطعی درمورد 
+$B$
+داد.\\
+حال اگر 
+$p\neq \frac{1}{2}$
+باشد:
+\begin{equation}
+	\nonumber
+	t_n= A+B(\frac{q}{p})^n+\frac{n}{p-q} 
+\end{equation}
+\begin{equation}
+	\nonumber
+	t_0= 0 =A+B
+\end{equation}
+\begin{equation}
+	\nonumber
+	t_n = B(-1 + (\frac{q}{p})^n) + \frac{n}{2p-1}
+\end{equation}
+مجددا در حد بینهایت واگراست. پس نمی توان راجب 
+$B$
+ صحبت کرد.
+\newpage
+\subsection{پاسخ تئوری 13.}	
+\subsubsection{1.}
+$Y_n$ را متغیر تصادفی تعریف می کنیم در یک حرکت $n$ گام برداشته شود. این حرکت برابر با جمع $n$ متغیر تصادفی تک گام است:
+\begin{equation}
+	\nonumber
+	Y_n = X_1 + X_2 + \cdots + X_n
+\end{equation}
+\subsubsection{2.}
+زیرا احتمال اینکه زمانی به ایستگاه 1 برسد برابرست با احتمال اینکه زمانی که به ایستگاه 2 برسد به چپ برود یا زمانی که به ایستگاه 0 رسید به راست برود.
+\begin{equation}
+	\nonumber
+	\mathbb{P}_1 = p \mathbb{P}_0 + q \mathbb{P}_2
+\end{equation}
+ولی چون در اولین گام به ایستگاه صفرم می رویم پس :
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&\mathbb{P}_0 = 1\\
+		\Rightarrow &\mathbb{P}_1 = p + q \mathbb{P}_2
+	\end{split}
+\end{equation}
+\subsubsection{4.}
+اگر یک گام جلو برویم آنگاه از خانه 1، انگار مسئله مجددا از مبدا تکرار می شود. پس با احتمال 
+$\mathbb{P}_1$
+به خانه 1 می رویم و از آنجا با احتمال 
+$\mathbb{P}_1$
+به خانه 2 می رسیم:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&\mathbb{P}_2 = \mathbb{P}_1^2\\	
+		\Rightarrow &\mathbb{P}_1 = p + q \mathbb{P}_1^2\\
+		\Rightarrow &q\mathbb{P}_1^2 - \mathbb{P}_1 + p = 0	
+	\end{split}
+\end{equation}
+از حل معادله درجه دو بدست می آوریم:
+\begin{equation}
+	\nonumber
+	\mathbb{P}_1 = 
+	\begin{cases}
+		 \frac{p}{q}\\
+		 1
+	\end{cases}
+\end{equation}
+ریشه اول زمانی معتبر است که احتمال کل 
+$\mathbb{P}_1$
+بیشتر از یک نشود، یعنی در حالت 
+$p < \frac{1}{2}$
+ریشه اول و در حالت 
+$p \geqslant \frac{1}{2}$
+ ریشع دوم جواب مسئله است.
+ \subsubsection{4.}
+ برای 
+ $k > 0$:
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		& \mathbb{P}_k = \mathbb{P}_1^k\\
+ 		&\mathbb{P}_0 = 1\\
+ 		\forall k > 0 :\hspace{1cm} &\mathbb{P}_{-k} = \mathbb{P}_{-1}^k
+ 	\end{split}
+ \end{equation}
+ حال کافیست روی مقادیر احتمال جابجایی حالت بندی کنیم:
+ \begin{equation}
+ 	\nonumber
+ 	\forall p \geqslant \frac{1}{2} : \hspace{1cm} \mathbb{P}_k = 
+ 	\begin{cases}
+ 		1 &\mbox{$k \geqslant 0$}\\
+ 		\frac{q}{p}^{-k} &\mbox{$k < 0$}
+ 	\end{cases}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\forall p < \frac{1}{2} : \hspace{1cm} \mathbb{P}_k = 
+ 	\begin{cases}
+ 		1 &\mbox{$k \leqslant 0$}\\
+ 		\frac{p}{q}^{k} &\mbox{$k > 0$}
+ 	\end{cases}
+ \end{equation}
+ \subsubsection{5.}
+ در بالا نتایج آمده است. اگر
+ $p = \frac{1}{2}$
+ آنگاه از نتایج بالا پیداست احتمال رسیدن به همه ایستگاه ها برابر 1 است.
+ \subsubsection{6.}
+ \begin{equation}
+ 	\nonumber
+ 	p = 0.3 < \frac{1}{2} \Rightarrow \hspace{1cm} \mathbb{P}_5 = (\frac{0.3}{0.7})^5 \approx 0.014
+ \end{equation}
+ \newpage
+ \subsection{پاسخ تئوری 14.}
+ \subsubsection{1.}
+ اگر به ایستگاه $1 - k$ ام برسیم، مدت زمانی که طول می کشد تا از این ایستگاه به ایستگاه بعدی برسیم ماننده مدت زمانی ست که طول می کشد از ایستگاه صفرم به ایستگاه یکم برسیم. پس:
+ \begin{equation}
+ 	\nonumber
+ 	\begin{cases}
+ 		 \mathbb{E}[T_k] = \mathbb{E}[T_{k - 1}] + \mathbb{E}[T_1]\\
+ 		 \mathbb{E}[T_{k-1}] = \mathbb{E}[T_{k - 2}] + \mathbb{E}[T_1]\\
+ 		\vdots\\
+ 		 \mathbb{E}[T_2] = \mathbb{E}[T_1] + \mathbb{E}[T_1]\\
+ 	\end{cases}
+ \end{equation}
+ با جمع زدن معادلات معادله برای زمان رسیدن به 
+ $k$
+ امین ایستگاه می رسد:
+ \begin{equation}
+ 	\nonumber
+ 	\mathbb{E}[T_k] = k\mathbb{E}[T_1]
+ \end{equation}
+ \subsubsection{2.}
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		\mathbb{E}[T_1] &= p (1 + \mathbb{E}[T_0]) + q (1+ \mathbb{E}[T_2])\\
+ 		& = 1 + q\mathbb{E}[T_2]
+ 	\end{split}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		&\mathbb{E}[T_2] = 2 \mathbb{E}[T_1] = \frac{\mathbb{E}[T_1] - 1}{q}\\
+ 		\Rightarrow &\mathbb{E}(1 - 2q) = 1\\
+ 		\Rightarrow &\mathbb{E}[T_1] = \frac{1}{1-2q} = \frac{1}{2p-1}
+ 	\end{split}
+\end{equation}
+\subsubsection{3.}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[T_k] = \frac{k}{2p-1}
+\end{equation}
+\subsubsection{4.}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[T_{50}] = \frac{50}{0.1} = 500
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 15.}
+\begin{equation}
+	\nonumber
+	Z_n = Z_0 + \sum_{i = 1}^{n} X_i
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{P}[Z_{10} > z] &= \mathbb{P}[\sum_{i = 1}^{10}X_i > z - Z_0]\\
+		&= \mathbb{P}[\sum_{i = 1}^{10}X_i > 5]\\
+		&=\mathbb{P}[\frac{\sum_{i = 1}^{10}X_i}{\sqrt{10}}> \frac{5}{\sqrt{10}}]\\
+		&= 1- \Phi(\frac{5}{\sqrt{10}})
+	\end{split}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 16.}
+\subsubsection{1.}
+جابجایی متغیر های تصادفی مستقل تاثیری در چگالی احتمال مشترک آنها ندارد.
+\subsubsection{2.}
+از برهان خلف داریم، 
+$\mathbb{E}[N] = \infty$
+.از طرفی از قانون قوی اعداد بزرگ داریم:
+\begin{equation}
+	\nonumber
+	\lim_{n\rightarrow \infty} \frac{X_1 + X_2 + \cdots + X_n}{n} = \mathbb{E}[X] > 0
+\end{equation}
+در نتیجه در حد بینهایت مجموع متغیر های تصادفی مان نمی تواند منفی باشد. در نتیجه فرض خلف غلط بوده است:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[N] < \infty
+\end{equation}
+\subsubsection{3.}
+متغیر تصادفی 
+$Y_i$
+را به گونه ای تعریف می کنیم که یک است، اگر و تنها اگر ایستگاه $i$ ام را یکبار ببینیم و در غیر اینصورت صفر است. در نتیجه :
+\begin{equation}
+	\nonumber
+	R_n = \sum_{i = 1}^{n} Y_i
+\end{equation}
+حال با استفاده از خاصیت خطی امید ریاضی:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[R_n] = n\mathbb{E}[Y_i] = n \mathbb{P}[Y_i = 1]
+\end{equation}
+\begin{equation}
+	\nonumber
+	\frac{\mathbb{E}[R_n]}{n} = \mathbb{P}[Y_i = 1]
+\end{equation}
+که با حد بینهایت $n$ عملا همان است که بگوییم هرگز به یک نقطه(به تقارن مبدا) باز نگردیم.
+\begin{equation}
+	\nonumber
+	\lim_{n\Rightarrow \infty} \frac{\mathbb{E}[R_n]}{n} = \mathbb{P}[never\hspace{0.1cm}returns\hspace{0.1cm}to\hspace{0.1cm}zero]
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 17.}
+کافیست احتمال های زیر را تعریف می کنیم:\\
+$p_k$:
+احتمال رسیدن به مبدا بدون تماس با ایستگاه 
+$k$
+ام.\\
+$q_k$:
+احتمال رسیدن به ایستگاه 
+$k$
+بدون تماس با مبدا.\\
+احتمال رفتن به نقطه 1 و برگشت به مبدا از نقطه 1 هر کدام 
+$\frac{1}{2}$
+است. در نتیجه :
+\begin{equation}
+	\nonumber
+	p_k = \frac{1}{4} (1+ p_{k-1} + p_{k-1}^2 + \cdots) = \frac{1}{4} \frac{1}{1-p_{k-1}}
+\end{equation}
+با نوشتن چند جمله اول داریم:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&p_1 = 0\\
+		&p_2 = \frac{1}{4}\\
+		&p_3 = \frac{1}{3}\\
+		&\vdots\\
+		&p_k = \frac{k - 1}{2k}
+	\end{split}
+\end{equation}
+با تکرار همین روند برای 
+$q_k$
+داریم:
+\begin{equation}
+	\nonumber
+	q_k = \frac{1}{2} q_{k-1} (1 + p_{k-1} + p_{k-1}^2 + \cdots)
+\end{equation}
+\begin{equation}
+	\nonumber
+	q_k = \frac{q_{k-1}}{2} \frac{1}{1-p_{k-1}} = q_{k-1} \frac{k-1}{k}
+\end{equation}
+مجددا با نوشتن چند جمله اول:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&q_1 = \frac{1}{2}\\
+		&q_2 = \frac{1}{4}\\
+		&q_3 = \frac{1}{6}\\
+		&\vdots\\
+		&q_k = \frac{1}{2k}
+	\end{split}
+\end{equation}
+متغیر تصادفی 
+$R_k$
+را فرایند دیدن $k$ امین ایستگاه قبل از دیدن مبدا بنامیم. آنگاه:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[R_k] = \sum_{n = 0}^{\infty} q_k^2 n(p_k + \frac{1}{2})^{n-1}
+\end{equation}
+که در آن 
+$\frac{1}{2}$
+احتمال این است که پس از رسیدن به ایستگاه مورد نظر راست برود و دیگری احتمال این است که به چپ برود. جمع بالا را نیز می گیریم:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[R_k] = q_k^2 \sum_{n = 0}^{\infty} n(p_k + \frac{1}{2})^{n-1}
+	= q_k^2 \frac{d}{d(p_k + \frac{1}{2})} (\frac{1}{1-(p_k + \frac{1}{2})})
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[R_k] = q_k^2 (\frac{1}{\frac{1}{2} - p_k})^2 = (2k)^2(\frac{1}{2k})^2 = 1
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 18.}
+\subsubsection{1.}
+با نوشتن امید ریاضی به صورت شرطی:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[e^{\theta Z_n}] = \mathbb{E}[e^{\theta Z_n} | A] \mathbb{P}_A + \mathbb{E}[e^{\theta Z_n} | B] \mathbb{P}_B
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[e^{\theta Z_n}] = \mathbb{P}_A (\mathbb{E}[e^{\theta Z_n} | A] - \mathbb{E}[e^{\theta Z_n} | B]) + \mathbb{E}[e^{\theta Z_n} | B] 
+\end{equation}
+از این استفاده کردیم که احتمال رسیدن به دو سر متمم یکدیگر است.
+\begin{equation}
+	\nonumber
+	\mathbb{P}_A = \frac{1 - \mathbb{E}[e^{\theta^*Z_n }|B]}{\mathbb{E}[e^{\theta^*Z_n }|A] - \mathbb{E}[e^{\theta^*Z_n}|B]} =  \frac{1 - e^{\theta^*B}}{e^{\theta^*A} - e^{\theta^*B}}
+\end{equation}
+\subsection{2.}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{E}[N] &= A \mathbb{P}_A + B \mathbb{P}_B\\
+		&= A \frac{1 - e^{\theta^*B}}{e^{\theta^*A} - e^{\theta^*B}} + B \frac{-1 + e^{\theta^*A}}{e^{\theta^*A} - e^{\theta^*B}}
+	\end{split}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 19.}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&\mathbb{E}[Z_n] = \sum_{i = 1}^{n} \mathbb{E}[X_i] = \sum_{i = 1}^{n} 
+		\begin{bmatrix}
+			r \mathbb{E}[\cos \theta_i]\\
+			r \mathbb{E}[\sin \theta_i]
+		\end{bmatrix}
+		\\
+		&\mathbb{E}[\cos \theta] = \int_{0}^{2\pi} \cos \theta \frac{d\theta}{2\pi} = 0\\
+		&\mathbb{E}[Z_n] = 0		
+	\end{split}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&Z_n = r 
+		\begin{bmatrix}
+			\sum_{i = 1}^{n} \cos \theta_i\\
+			\sum_{i = 1}^{n} \sin \theta_i
+		\end{bmatrix}
+		\\
+	\end{split}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		|| Z_n ||^2 &= r^2 ((\sum_{i = 1}^{n}\cos \theta_i)^2 + (\sum_{i = 1}^{n}\sin \theta_i)^2)\\
+		&= r^2 (n + 2 \sum_{i = 1}^{n - 1}\sum_{j = i+1}^{n}(\cos \theta_i \cos \theta_j + \sin \theta_i \sin \theta_j))
+	\end{split}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\forall i \neq j :\hspace{1cm} \mathbb{E}[\cos \theta_i \cos \theta_j] = \mathbb{E}[\cos \theta_i] \mathbb{E}[\cos \theta_j] = 0 = \mathbb{E}[\sin \theta_i \sin \theta_j]
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow \mathbb{E}(||Z_n||^2) = nr^2
+\end{equation}
+\subsection{3.}
+\begin{equation}
+	\nonumber
+	||Z_n||^4 = r^4 ((\sum_{i=1}^{n}\cos \theta_i)^4 + (\sum_{i = 1}^{n} \sin \theta_i)^4 + 2 (\sum_{i = 1}^{n}\cos \theta_i)^2 (\sum_{i = 1}^{n}\sin \theta_i)^2)
+\end{equation}
+\begin{equation}
+	\nonumber
+	\forall i \neq j: \hspace{1cm} \mathbb{E}[\cos^3 \theta_i \cos \theta_j] = 0 = \mathbb{E}[\sin^3 \theta_i \sin \theta_j]
+\end{equation}
+\begin{equation}
+	\nonumber 
+	\begin{split}
+			\forall i \neq j: \hspace{1cm} \mathbb{E}[\cos^2 \theta_i \cos^2 \theta_j]& =\mathbb{E}[\cos^2 \theta_i]\mathbb{E}[\cos^2 \theta_j]\\
+		& =\frac{1}{4}
+	\end{split}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\textbf{اثبات}: \hspace{1cm} \mathbb{E}[\cos^2 \theta_i] = \frac{1}{2\pi}\int_{0}^{2\pi} \cos^2 \theta d\theta = \frac{1}{4\pi} \int_{0}^{2\pi} (1+ \cos 2\theta) d\theta = \frac{2\pi}{4\pi} = \frac{1}{2}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow \mathbb{E}[\sin^2 \theta_i] = \frac{1}{2}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{E}[\cos^4 \theta_i] 
+		&= \frac{1}{2\pi} \int_{0}^{2\pi} \cos^4 d\theta = \frac{1}{8\pi} \int_{0}^{2\pi} (1 + \cos 2\theta)^2 d\theta\\
+		&= \frac{1}{8\pi} \int_{0}^{2\pi} (1+ \cos^2 2\theta + 2 \cos 2\theta) d\theta\\ 
+		&= \frac{1}{8\pi} \int_{0}^{2\pi} (\frac{3}{2} + \frac{\cos 4\theta}{2} + 2\cos 2\theta) d\theta = \frac{3}{8}\\
+		&= \mathbb{E}[\sin^4 \theta_i]
+	\end{split}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[||Z_n||^4] = r^4 (n\frac{3}{8} + \frac{n(n-1)}{2} \frac{6}{4}) \times 2 + 2 \times (n\frac{1}{8} + \frac{1}{4} \frac{n(n-1)}{2})r^4 
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{E}[||Z_n||^4] &= r^4 (n + \frac{7}{4}n(n-1))\\
+		&= \frac{nr^4}{4} (7n - 3)
+	\end{split}
+\end{equation}
+\newpage
+\section{گر از این منزل ویران به سوی خانه روم!}
+\subsection{پاسخ تئوری 20.}
+احتمال اینکه در ابتدا روی مبدا باشد و روی مبدا برگردد، برابرست با این که ابتدا یک قدم به راست رفته و از نقطه 1 به مبدا برسد و یا روی نقطه -1 رفته و از روی آن به مبدا برسیم. از سوال 12 می دانیم:
+\begin{equation}
+	\nonumber
+	\mathbb{P}_n =
+	\begin{cases}
+		1 &\mbox{$p \leqslant \frac{1}{2}$}\\
+		(\frac{q}{p})^n &\mbox{$p > \frac{1}{2}$}
+	\end{cases}
+\end{equation}
+در این سوال 
+$p = \frac{1}{2}$ :
+\begin{equation}
+	\nonumber
+	\mathbb{P}[R] = p \mathbb{P}_1 + q \mathbb{P}_{-1} = p + q = 1
+\end{equation}
+از سوال 26 می دانیم که:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[N] = \sum_{i = 1}^{\infty} (2i \mathbb{P}[Z_{2i}]) 
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{P}[Z_{2n}] = \binom{2n}{n} (\frac{1}{2})^{2n}
+\end{equation}
+از صورت قضیه در سوال 29 داریم:
+\begin{equation}
+	\nonumber
+	\frac{1}{\sqrt{\pi (n + \frac{1}{2})}} \leqslant \mathbb{P}[Z_{2n}] \leqslant \frac{1}{\sqrt{\pi n}}
+\end{equation}
+در نتیجه احتمال رسیدن به مبدا متناسب با رادیکال $n$ است. پس جمع سری $p$ می رسیم که برای 
+$p = \frac{1}{2} < 1$
+واگراست.
+\newpage
+\subsection{پاسخ تئوری 21.}
+\begin{equation}
+	\nonumber
+	\mathbb{P}[R] = \frac{2}{3} \mathbb{P}_1 + \frac{1}{3} \mathbb{P}_{-1} \overset{\text{با توجه به سوال 12}}{\longrightarrow}
+	\begin{cases}
+		\mathbb{P}_1 = \frac{q}{p} = \frac{1}{2}\\
+		\mathbb{P}_{-1} = 1
+	\end{cases}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Longrightarrow\mathbb{P}[R] = \frac{2}{3}
+\end{equation}
+احتمال اینکه فقط $n$ بار به مبدا بازگردد را 
+$\mathbb{P}[N]$
+بنامیم. در نتیجه:
+\begin{equation}
+	\nonumber
+	\mathbb{P}[N] = \mathbb{P}[R]^{N - 1}(1 - \mathbb{P}[R])
+\end{equation}
+که رابطه فوق با این فرض است که غیر از اولین بار که در مبدا هستیم، $N - 1$ بار دیگر نیز به  مبدا برگردیم و پس از آن دیگر به مبدا بازنگردیم.
+\begin{equation}
+	\nonumber
+	\Rightarrow \mathbb{E}[N] = \sum_{i = 1}^{\infty}(i \mathbb{P}[i]) = \sum_{i = 1}^{\infty} i\mathbb{P}[R]^{i-1}(1-\mathbb{P}[R])
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[N] = (1 - \mathbb{P}[R]) \sum_{i = 1}^{\infty} i\mathbb{P}[R]^{i-1} = (1-\mathbb{P}[R]) \frac{d}{d\mathbb{P}[R]} (\sum_{i = 1}^{\infty} \mathbb{P}[R]^i)
+\end{equation}
+\begin{equation}
+	\nonumber
+	(1 - \mathbb{P}[R])\frac{d}{d\mathbb{P}[R]}(\frac{\mathbb{P}[R]}{1 - \mathbb{P}[R]}) = \frac{1}{1-\mathbb{P}[R]}
+\end{equation}
+در نتیجه:
+\begin{equation}
+	\nonumber
+	\Rightarrow \mathbb{E}[N] = \frac{1}{1 - \mathbb{P}[R]} = 3
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 22.}
+در سوال 20 نشان دادیم که تنها در حالتی حرکت وفادار است که احتمال چپ یا راست رفتن برابر 
+$p = \frac{1}{2}$
+حرکت وفادار است. در این حالت نشان دادیم احتمال بازگشت در حرکت های زوج متناسب با 
+$\frac{1}{\sqrt{n}}$
+است. پس 
+$\mathbb{E}[N]$
+به بینهایت میل می کند. پس حرکت وفادار است.
+\newpage
+\subsection{پاسخ تئوری 23.}
+احتمال رسیدن به سر چپ قبل از رسیدن به سر راست را این گونه بیان می کنیم که این حرکت هم ارزست با اینکه یک گام به راست برداریم و از آنجا به مقصد برسیم یا یک گام به چپ برداریم و به مقصد برسیم. اگر یک گام به راست برداریم فاصله مان از سر راست 
+$M - 2x - 1$
+و فاصله از سر چپ برابر با
+$2x+2$
+خواهد بود. احتمال این بخش دقیقا هم ارزست با  
+$f(x+1)$
+زیرا فواصل از دو سر در این دو حالت یکی است. در نتیجه:
+\begin{equation}
+	\nonumber
+	f(x) = p f(x+1) + q f(x-1) = \frac{1}{2} [f(x+1)+f(x-1)]
+\end{equation}
+معادله بالا یک معادله بازگشتی برای 
+$f(x)$
+به ما می دهد. با اعمال شرایط مرزی های گفته شده در صورت سوال می توان تابع را به طور یکتا تعیین کرد.
+\begin{equation}
+	\nonumber
+	\text{شرایط مرزی} :
+	\begin{cases}
+		f(-1) = 1\\
+		f(M) = 0
+	\end{cases}
+\end{equation}
+معادله بازگشتی فوق همانند معادله بازگشتی سوال 11 است. پس :
+\begin{equation}
+	\nonumber
+	f(x) = A+Bx
+\end{equation}
+\begin{equation}
+	\nonumber
+	\text{اعمال شرایط مرزی} :
+	\begin{cases}
+		f(-1) = 1 = A - B\\
+		f(M) = 0 = A + MB
+	\end{cases}
+	\Rightarrow \hspace{1cm}
+	\begin{cases}
+		B = \frac{-1}{1+M}\\
+		A = \frac{M}{1+M}
+	\end{cases}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow \hspace{1cm} f(x) = \frac{M - x}{M + 1}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 24.}
+\subsubsection{1.}
+از نتیجه بخش قبل داریم:
+\begin{equation}
+	\nonumber
+	f(0) = \frac{M}{M+1}
+\end{equation}
+جواب مسئله مانند سوال 11 یا همان سوال قمارباز معروف است.
+\subsubsection{2.}
+از آنجایی که به ازای هر 
+$M \in \mathbb{R}$
+برقرار است، پس برای 
+$M \longrightarrow \infty$
+نیز برقرار است:
+\begin{equation}
+	\nonumber
+	\lim_{M\rightarrow\infty}f(0) = \lim_{M\rightarrow \infty}\frac{M}{M+1} = 1
+\end{equation}
+پس فضای ایستگاه هارا به صورت 
+$[-1, \infty]$
+در نظر بگیرید. در این فضا با احتمال تفریبا $1$ به ایستگاه $-1$ می رسیم.
+\subsubsection{3.}
+نتیجه ای که از مسئله قبل می توانیم بگیریم این است که در فضای 
+$(-\infty, \infty)$
+اگر روی نقطه $x$ باشیم و با احتمال برابر عقب جلو برویم، احتمال رسیدن به 
+$x+1$
+$(x-1)$
+قبل از رسیدن به 
+$-\infty$
+$(\infty)$
+برابر با $1$ است. پس احتمال بازگشت به مبدا به صورت زیر بدست می آید:
+\begin{equation}
+	\nonumber
+	\mathbb{P}[R] = p \mathbb{P}_1 + q \mathbb{P}_{-1} = \frac{1}{2} [\mathbb{P}_1 + \mathbb{P}_{-1}] = 1
+\end{equation}
+پس حرکت وفادار است.
+\newpage
+\subsection{پاسخ تئوری 25.}
+از صورت قوی قانون اعداد بزرگ داریم:
+\begin{equation}
+	\nonumber
+	\frac{\sum_{i = 1}^{n}X_i}{n} = \mathbb{E}[X]
+\end{equation}
+اگر در ابتدا در مبدا باشیم، بعد از $N$ حرکت باید به مبدا بازگردیم. اگر حرکت تصادفی باوفا باشد، تعداد $N$ هایی که در معادله زیر صدق می کنند، بی نهایت است:
+\begin{equation}
+	\nonumber
+	\lim_{N\rightarrow\infty} \frac{\sum_{i=1}^{N}X_i}{N} = 0 \neq \mathbb{E}[X_i]
+\end{equation}
+که خلاف فرض صورت سوال است. پس حرکت بی وفاست.
+\newpage
+\subsection{پاسخ تئوری 26.}
+تعداد دفعات عبور،
+$M_z$
+، را می توان به صورت زیر تعریف کرد:
+\begin{equation}
+	\nonumber
+	M_z = \sum_{i = 1}^{\infty} Y_i
+\end{equation}
+که در آن، 
+$Y_i$
+ متغیر تصادفی است که برابر $1$ است اگر در حرکت $i$ ام روی نقطه $z$ باشیم و در غیراینصورت برابر صفر است.
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+		 \mathbb{E}[M_z] &= \sum_{i = 0}^{\infty} \mathbb{P}[Y_i = 1] \\
+		 &= \sum_{i=0}^{\infty} \mathbb{P}[Z_i = z]		
+ 	\end{split}
+ \end{equation} 
+ \newpage
+ \subsection{پاسخ تئوری 27.}
+ اگر در حرکت $n$ ام به نقطه $z$ برسیم، از آنجا به بعد مسئله رسیدن به نقطه $z$ همان مسئله بازگشت به مبدا است.
+ \begin{equation}
+ 	\nonumber
+ 	m(z) = \mathbb{P}_z m(0)
+ \end{equation}
+ که در آن 
+ $\mathbb{P}_z$
+ احتمال رسیدن از نقطه صفر به نقطه $z$ برای اولین بار است.
+ \begin{equation}
+ 	\nonumber
+ 	\forall z \neq 0 : \hspace{1cm} \mathbb{P}_z < 1 \hspace{0.5cm} , \hspace{0.5cm} \forall z = 0 : \mathbb{P}_z = 1
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\rightarrow \forall z \neq 0 : \hspace{0.5cm} m(z) = \mathbb{P}_z m(0) \leqslant m(0)
+ \end{equation}
+ که حالت تساوی برای 
+ $z = 0$
+ است. پس 
+ $m(0)$
+ ماکسیمم تابع 
+ $m(z)$
+ است.
+ \newpage
+ \subsection{پاسخ تئوری 28.}
+ \subsubsection{1.}
+ از چبیشف:
+ \begin{equation}
+ 	\nonumber
+ 	\begin{cases}
+ 		\mathbb{P}[|Z_n| > 2M\sqrt{n}] \leqslant \frac{Var(Z_n)}{4M^2n}\\  
+ 		Var(Z_n) = n Var(X_i) = n\mathbb{E}[X_i^2]
+ 	\end{cases}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\Rightarrow \mathbb{P}[|Z_n| > 2M\sqrt{n}] \leqslant \frac{\mathbb{E}[X_i^2]}{4M^2}
+ \end{equation}
+ همچنین می دانیم:
+ \begin{equation}
+ 	\nonumber
+ 	|X_i| < M \Rightarrow |X_i| < \sqrt{2} M \Rightarrow X_i^2 < 2M^2
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		\Rightarrow \hspace{0.1cm} &\mathbb{E}[X_i^2] < 2M^2\\	
+ 		\Rightarrow \hspace{0.1cm} &\mathbb{P}[|Z_n| > 2M\sqrt{n}] \leqslant \frac{1}{2}\\
+ 		\Rightarrow \hspace{0.1cm} &\mathbb{P}[|Z_n| \leqslant 2M\sqrt{n}] = 1 - \mathbb{P}[|Z_n| > 2M\sqrt{n}]\geqslant \frac{1}{2}
+ 	\end{split} 	
+ \end{equation}
+ \subsubsection{2.}
+ با استفاده از بخش قبل و نیز پرسش تئوری 26 داریم:
+ \begin{equation}
+ 	\nonumber
+ 	\sum_{z=-2M\sqrt{n}}^{2M\sqrt{n}} m(z) \geqslant \sum_{z=-2M\sqrt{n}}^{2M\sqrt{n}} \sum_{i = 0}^{n} \mathbb{P}[Z_i = z] =\sum_{i = 0}^{n} \sum_{z=-2M\sqrt{n}}^{2M\sqrt{n}} \mathbb{P}[Z_i = z]
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\Rightarrow \sum_{z=-2M\sqrt{n}}^{2M\sqrt{n}} m(z) \geqslant \sum_{i = 0}^{n} \mathbb{P}[|Z_i| < 2M\sqrt{n}] \geqslant \sum_{i = 0}^{n} \frac{1}{2}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\sum_{z=-2M\sqrt{n}}^{2M\sqrt{n}} m(z) \geqslant \frac{n}{2}
+ \end{equation}
+ \subsubsection{3.}
+ می دانیم:
+ \begin{equation}
+ 	\nonumber
+ 	m(0) \geqslant m(z)
+ \end{equation}
+ در نتیجه با جایگذاری آن در بخش قبل:
+ \begin{equation}
+ 	\nonumber
+ 	\sum_{z = -2M\sqrt{n}}^{2M\sqrt{n}} m(0) = m(0) 4M\sqrt{n} \geqslant \sum_{z = -2M\sqrt{n}}^{2M\sqrt{n}} m(z) \geqslant \frac{n}{2}
+ \end{equation}
+ با ساده سازی عبارت فوق 
+ \begin{equation}
+ 	\nonumber
+ 	m(0) \geqslant \frac{\sqrt{n}}{8M}
+ \end{equation}
+ که در حد 
+ $n$
+ به سمت بینهایت واگرا می شود که این در تناقض با فرض سوال است. پس در حالتی که احتمال چپ و راست رفتن برابرست، حرکت وفادار است.
+\newpage
+\section{به کوی عشق منه بی دلیل راه، قدم!}
+\subsection{پاسخ تئوری 29.}
+احتمال بازگشت در مراحل فرد برابر صفر است. احتمال بازگشت در مراحل زوج به صورت زیر است:
+\begin{equation}
+	\nonumber
+	\mathbb{P}[Z_{2n} = 0] = \binom{2n}{n} \frac{1}{4^n}
+\end{equation}
+و از طرفی طبق نامساوی مفروض در صورت سوال
+\begin{equation}
+	\nonumber
+	\frac{4^n}{\sqrt{\pi(n+\frac{1}{2})}} \leqslant \binom{2n}{n} \leqslant \frac{4^n}{\sqrt{\pi n}}
+\end{equation}
+در نتیجه احتمال بین دو کسر با توان منفی یک دوم ساندویچ شده است. پس در مجموع متناسب با آنها خواهد بود. حال کافیست متوسط 
+$N$
+را بیابیم:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[N] = \sum_{n = 1}^{\infty} \mathbb{P}[Z_{2n} = 0] \sim \sum_{n = 1}^{\infty} \frac{1}{\sqrt{n}} \longrightarrow \infty
+\end{equation}
+در حالت کلی نامساوی برای 
+$d$
+بعد به شکل زیر در می آید:
+\begin{equation}
+	\nonumber
+	(\frac{1}{\sqrt{\pi(n+\frac{1}{2})}})^d \leqslant \mathbb{P}[Z_{2n} = 0] \leqslant (\frac{1}{\sqrt{\pi n}})^d
+\end{equation}
+که سری متناظر برای محاسبه میانگین دفعات بازگشت به مبدا، سری 
+$p = \frac{-d}{2}$
+ که به ازای 
+ $d$
+ های بزرگتر از 2 همگرا و در غیر این صورت واگراست. در نتیجه حرکت در کمتر از 2 بعد با وفا و در بیش از 2 بعد بی وفا است.
+\newpage
+\subsection{پاسخ تئوری 30.}
+با توجه به اینکه جمع تعدادی متغیر گاوسی مستقل در نهایت یک توزیع گاوسی خواهد شد که میانگین(واریانس) آن برابر با مجموع میانگین(واریانس) هر کدام از متغیر های گاوسی مستقل است:
+\begin{equation}
+	\nonumber
+	Z_n = \sum_{i = 1}^{n} X_i
+\end{equation}
+\begin{equation}
+	\nonumber
+	X_i \sim \mathcal{N}(0, \sigma^2)
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow Z_n \sim \mathcal{N}(0, n\sigma^2)
+\end{equation}
+\begin{equation}
+	\nonumber
+	f_{Z_n}(z_n) = (\frac{1}{2\pi n \sigma^2})^{\frac{3}{2}} e^{-\frac{z_n^T z_n}{2n\sigma^2}}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 31.}
+از بسط تیلور $n$ بعدی استفاده می کنیم:
+\begin{equation}
+	\nonumber
+	f_{Z_{n-1}}(z_n - x_n) = f_{Z_{n-1}}(z_n) + x_n^T \vec{\nabla}f_{Z_{n-1}}(z_n) + \frac{1}{2} x_n^T H_{Z_{n-1}}(z_n) x_n + \mathcal{O}(||x_n||^3)
+\end{equation}
+با جایگذاری در انتگرال مذکور در صورت سوال و با صرف نظر از جملات مرتبه سه و بالاتر:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		f_{Z_n}(z_n) &= \int_{\mathbb{R}^3} f_{X_n}(x_n) f_{Z_{n-1}}(z_n - x_n) dx_n\\
+		&= \int_{\mathbb{R}^3} f_{X_n}f_{Z_{n-1}}(z_n) dx_n \\
+		&+ \int_{\mathbb{R}^3} f_{X_n}(x_n) x_n^T \vec{\nabla}f_{Z_{n-1}}(z_n) dx_n\\
+		&+ \int_{\mathbb{R}^3} f_{X_n} x_n^T H_{Z_{n-1}}(z_n) x_n dx_n		
+	\end{split}
+\end{equation}
+انتگرال اول که به انتگرال تابع چگالی احتمال در فضا تبدیل می شود که روی کل فضا برابر یک است. جمله دوم نیز به میانگین 
+$x_n$
+ تبدیل می شود که طبق فرض سوال برابر یک است. در نتیجه تنها جمله دشواری که باقی می ماند، جمله سوم است که با استفاده از ماتریس دو اندیسه دلتای کرونکر آن را محاسبه می کنیم:
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		& \delta_{ij} = 
+ 		\begin{cases}
+ 			1 &\mbox{$i = j$}\\
+ 			0 &\mbox{$i \neq j$}
+ 		\end{cases}
+ 		\\
+ 		\Rightarrow & x_n^T H_{Z_{n-1}}(z_n) x_n = \sum_{i = 1}^{n} \sum_{j = 1}^{n} x_{n_i}[H_{Z_{n-1}}(z_n)]_{ij} x_{n_j}
+ 	\end{split}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	\begin{split}
+ 		\Rightarrow \int_{\mathbb{R}^3} f_{X_n}(x_n) x_n^T H_{Z_{n-1}}(z_n) x_n &= \sum_{i = 1}^{n} \sum_{j = 1}^{n} [H_{Z_{n-1}}(z_n)]_{ij} \int_{\mathbb{R}^3} f_{X_n}x_{n_i} x_{n_j} dx_n\\
+ 		&=\sum_{i = 1}^{n} \sum_{j = 1}^{n} [H_{Z_{n-1}}(z_n)]_{ij} \sigma^2 \delta_{ij}\\
+ 		&=\sigma^2tr(H_{Z_{n-1}}(z_n))\\
+ 		&=\sigma^2 \nabla^2 f_{Z_{n-1}}(z_n)
+ 	\end{split}
+ \end{equation}
+ \begin{equation}
+ 	\nonumber
+ 	f_{Z_n}(z_n) = f_{Z_{n-1}}(z_n) + \frac{\sigma^2}{2} \nabla^2 f_{Z_{n-1}}(z_n)
+ \end{equation}
+\newpage
+\subsection{پاسخ تئوری 32.}
+کافیست فاصله گسسته را به فواصل پیوسته زمانی تبدیل کنیم:
+\begin{equation}
+	\nonumber
+	f_{Z_n}(z_n) - f_{Z_{n-1}}(z_n) \approx \frac{\partial f_{Z_t}(z_t)}{\partial t} \delta t=\frac{\sigma^2}{2} \nabla^2 f_{Z_{n-1}}(z_n)
+\end{equation}
+\begin{equation}
+	\nonumber
+	\sigma^2 = s\delta t
+\end{equation}
+\begin{equation}
+	\nonumber
+	\alpha = \frac{s}{2}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 33.}
+\begin{equation}
+	\nonumber
+	\tilde{F}(k) = \mathcal{F}\{f_{Z_t}(z_t)\}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow \frac{d\tilde{F}(k)}{dt} = \frac{-s}{2} k^T j \tilde{F}(k)
+\end{equation}
+با انتگرال گیری از معادله فوق:
+\begin{equation}
+	\nonumber
+	\tilde{F}(k) = A e^{-\frac{s}{2}k^T k t}
+\end{equation}
+از آنجایی که مکان را در لحظه اول به طور قطعی می دانیم، در نتیجه 
+$A = 1$
+. حال کافیست از تابع فوق فوریه معکوس بگیریم:
+\begin{equation}
+	\nonumber
+	f_{Z_t}(z_t)= (\frac{1}{2\pi})^3 \int_{\mathbb{R}^3}e^{-\frac{sk^Tk}{2}} e^{jk^T\vec{x}} d^3k
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		f_{Z_t}(z_t)  =&(\frac{1}{2\pi})^3 \int_{-\infty}^{\infty} e^{jk_x x} e^{-\frac{sk_x^2 t}{2}} dk_x\\
+		&\int_{-\infty}^{\infty} e^{jk_y y} e^{-\frac{sk_y^2 t}{2}} dk_y\\
+		&\int_{-\infty}^{\infty} e^{jk_z z} e^{-\frac{sk_z^2 t}{2}} dk_z
+	\end{split}
+\end{equation}
+و با استفاده از نکته زیر 
+\begin{equation}
+	\nonumber
+	f(t) = \frac{1}{\sqrt{2\pi}\sigma} e^{\frac{-t^2}{2\sigma^2}} \Leftrightarrow \mathcal{F}\{f(t)\} = \frac{1}{\sqrt{2\pi}} e^{\frac{-\sigma^2 \omega^2}{2}}
+\end{equation}
+\begin{equation}
+	\nonumber
+	f_{Z_t}(z_t) = (\frac{1}{2\pi st})^{\frac{3}{2}} e^{-\frac{x^2 + y^2 + z^2}{2st}}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 34.}
+کافیست المان حجم در کارتزین را به المان حجم در دستگاه قطبی کروی تبدیل کنیم و روی زاویه فضایی انتگرال گیری کنیم:
+\begin{equation}
+	\nonumber
+	dx dy dz = \int_{\text{روی تمام فضا}}r^2 d\Omega dr = 4\pi r^2 dr
+\end{equation}
+بنابراین به اندازه
+$4\pi r^2$
+،
+$degeneracy$
+  خواهیم داشت. چگالی احتمال روی فواصل شعاعی به صورت زیر خواهد بود:
+\begin{equation}
+	\nonumber
+	f_{Z_t}(r)= \frac{4\pi r^2}{(2\pi st)^{\frac{3}{2}}} e^{-\frac{r^2}{2st}}	
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{E}[||Z_t||] &= \int_{0}^{\infty} r \frac{4\pi r^2}{(2\pi st)^{\frac{3}{2}}} e^{-\frac{r^2}{2st}} dr\\
+		&= \frac{4\pi}{(2\pi st)^{\frac{3}{2}}} \int_{0}^{\infty} r^3 e^{-\frac{r^2}{2st}} dr
+	\end{split}
+\end{equation}
+با تغییر متغیر زیر:
+\begin{equation}
+	\nonumber
+	\alpha \overset{\Delta}{=} \frac{r^2}{2st}
+	\Rightarrow d\alpha = \frac{rdr}{st}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\begin{split}
+		\mathbb{E}[||Z_t||] &= \frac{4\pi}{(2\pi st)^\frac{3}{2}} \int_{0}^{\infty} e^{-\alpha} 2st \alpha st d\alpha\\
+		&= \frac{2\pi (2st)^2}{(2\pi st)^\frac{3}{2}} \int_{0}^{\infty} \alpha e^{-\alpha} d\alpha 
+	\end{split}
+\end{equation}
+که انتگرال آخر همان 
+$\Gamma(2) = 1! = 1$
+است. پس:
+\begin{equation}
+	\nonumber
+	\mathbb{E}[||Z_t||] = \sqrt{\frac{8st}{\pi}}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[||Z_t||^2] = \int_{0}^{\infty} r^2 \frac{4\pi r^2}{(2\pi st)^{\frac{3}{2}}} e^{-\frac{r^2}{2st}} dr
+\end{equation}
+از طرفی از تعریف تابع چگالی احتمال می دانیم:
+\begin{equation}
+	\nonumber
+	\int_{0}^{\infty} \frac{4\pi r^2}{(2\pi st)^{\frac{3}{2}}} e^{-\frac{r^2}{2st}} dr = 1
+\end{equation}
+\begin{equation}
+	\nonumber
+	 \frac{(2\pi st)^{\frac{3}{2}}}{4\pi} = \int_{0}^{\infty} r^2 e^{-\frac{r^2}{2st}} dr
+	 \hspace{1cm} ; \hspace{1cm} \alpha \overset{\Delta}{=} \frac{1}{2st}
+\end{equation}
+\begin{equation}
+	\nonumber
+	-\frac{\partial}{\partial \alpha}\int_{0}^{\infty} r^2 e^{-\alpha r^2} dr = 
+	\int_{0}^{\infty} r^4 e^{-\alpha r^2} dr
+\end{equation}
+\begin{equation}
+	\nonumber
+	-\frac{\partial}{\partial \alpha} (\frac{\alpha^{\frac{-3}{2}}}{4\sqrt{\pi}}) = 
+	\frac{3\alpha^{-\frac{5}{2}}}{8\sqrt{\pi}}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\mathbb{E}[||Z_t||^2] = \frac{3\alpha^{-\frac{5}{2}}}{8\sqrt{\pi}} \frac{4\sqrt{\pi}}{\alpha^{-\frac{3}{2}}} = \frac{3}{2\alpha} = 3st 
+\end{equation}
+\begin{equation}
+	\nonumber
+	Var[||Z_t||] = 3st - \frac{8st}{\pi} = \frac{3\pi - 8}{\pi} st
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 35.}
+کافیست متغیر های زمانی را به متغیر های گسسته به صورت زیر تبدیل کنیم:
+\begin{equation}
+	\nonumber
+	s\delta t = \sigma^2 \Rightarrow s\frac{t}{n} = \sigma^2 \Rightarrow st = n\sigma^2 
+\end{equation}
+در نتیجه:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&f_{Z_t}(z_t) = (\frac{1}{2\pi st})^{\frac{3}{2}} e^{-\frac{x^2 + y^2 + z^2}{2st}}\\
+		\Rightarrow&f_{Z_n}(z_n) = (\frac{1}{2\pi n\sigma^2})^{\frac{3}{2}} e^{-\frac{z_n^T z_n}{2n\sigma^2}}
+	\end{split}
+\end{equation}
+اگر از 
+$CLT$
+استفاده کنیم، میانگین و واریانس
+$indicator \hspace{0.2cm}variable$
+ها با یکدیگر جمع می شود(صفر می ماند). از طرفی واریانس نیز 
+$n$
+برابر می شود که دقیقا همان نتیجه ای است که چند خط بالاتر به آن رسیده بودیم.
+\begin{equation}
+	\nonumber
+	Z_n = Z_0 + \sum_{i=1}^{n} X_i \Rightarrow \mathbb{E}[Z_n] = 0 , Var[Z_n] = \sigma_0^2 + n\sigma^2
+\end{equation}
+از آنجایی که 
+$Z_0$
+نیز یک توزیع گاوسی مستقل از قدم هایی ست که برمیداریم، در نتیجه خود 
+$Z_n$
+نیز گاوسی ست:
+\begin{equation}
+	\nonumber
+	Z_n \sim \mathcal{N}(0, \sigma_0^2 + n\sigma^2)
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Rightarrow f_{Z_n} = (\frac{1}{2\pi(\sigma_0^2 + n\sigma^2)})^{\frac{3}{2}} e^{-\frac{z_n^T z_n}{2st}}
+\end{equation}
+\begin{equation}
+	\nonumber
+	f_{Z_t} = (\frac{1}{2\pi (\sigma_0^2 + st)})^{\frac{3}{2}} e^{-\frac{z_n^T z_n}{2(\sigma_0^2 + st)}}
+\end{equation}
+\newpage
+\subsection{پاسخ تئوری 37.}
+می دانیم که وقتی مقصد نهایی را بر حسب گام ها به شکل زیر بسط بدهیم:
+\begin{equation}
+	\nonumber
+	Z_n = \sum_{i = 1}^{n} X_i
+\end{equation}
+و نیز می دانیم تابع توزیع چگالی احتمال متغیر تصادفی ناشی از جمع چند متغیر تصادفی برابر ست با کانولوشن تابع توزیع چگالی احتمال آنها خواهد بود.
+\begin{equation}
+	\nonumber
+	f_{Z_n}(z_n) = f_{X_1}(x_1) \ast f_{X_2}(x_2) \ast \cdots \ast f_{X_n}(x_n) 
+\end{equation}
+همچنین می دانیم تبدیل فوریه کانولوشن برابرست با ضرب تبدیل فوریه توابع کانوالو شده:
+\begin{equation}
+	\nonumber
+	\mathcal{F}\{f_{Z_n}(z_n)\} = \mathcal{F}\{f_{X_1}(x_1)\} \mathcal{F}\{f_{X_2}(x_2)\} \cdots \mathcal{F}\{f_{X_n}(x_n) \}
+\end{equation}
+و از طرفی نیز می دانیم که:
+\begin{equation}
+	\nonumber
+	\mathcal{F}\{f_{X_i}(x_i)\} = \tilde{f}_{X_m}^{(m)}(k)
+\end{equation}
+با فوریه معکوس گرفتن از روابط قبل داریم:
+\begin{equation}
+	\nonumber
+	f_{Z_n}(z_n) = (\frac{1}{2\pi})^3 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \Pi_{i = 1}^{n} \tilde{f}_{X_i}^{(i)}(k) e^{jk^T z_n} dk_1 dk_2 dk_3
+\end{equation}
+\newpage
+همانطور که پیداست، چگالی احتمال هر گام یک توزیع گاوسی با میانگین صفر و واریانس 
+$m^2 \sigma^2$
+است. از طرفی در جمع تعدادی متغیر گاوسی مستقل، واریانس ها و میانگین های آنها نیز جمع خواهد شد. پس:
+\begin{equation}
+	\nonumber
+	\begin{split}
+		&Z_n \sim \mathcal{N}(0, \sum_{i = 1}^{n}i^2 \sigma^2)\\
+		\Rightarrow &Z_n \sim \mathcal{N}(0, \frac{n(n+1)(2n+1)}{6}\sigma^2)			
+	\end{split}
+\end{equation}
+در نتیجه:
+\begin{equation}
+	\nonumber
+	f_{Z_n}(z_n) = (\frac{3}{\pi n(n+1)(2n+1)\sigma^2})^{\frac{3}{2}} e^{-\frac{3z_n^T z_n}{n(n+1)(2n+1)\sigma^2}}
+\end{equation}
+\end{document}
